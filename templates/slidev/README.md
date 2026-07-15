@@ -24,8 +24,9 @@ cd slides && pnpm install
    - `slides/slides.md` のレイアウト名 (`talk-cover` / `profile` / `toc`) は
      テーマ側に存在する必要がある。無いテーマでは `cover` / `default` 等へ変更する
 2. **プロジェクト名**
-   - `slides/package.json` の `name`
-   - `slides/wrangler.jsonc` の `name` (Workers のサブドメインになる)
+   - `slides/package.json` の `name`: `<リポジトリ名>-slides` 推奨。
+     portless の worktree URL (`https://<worktree>.<name>.localhost`) に使われる
+   - `slides/wrangler.jsonc` の `name`: リポジトリ名推奨 (Workers のサブドメインになる)
 3. **本文**: `slides/slides.md` のタイトル・イベント名・所属
 4. **デプロイ CI**: `.github/workflows/deploy-slides.yml` の
    `repository` / `path` / `working-directory` / `cache-dependency-path` の
