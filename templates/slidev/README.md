@@ -20,6 +20,10 @@ cd slides && pnpm install
      `link:../../CHANGE_ME/...` のリポジトリ名。隣にチェックアウトした
      テーマリポジトリを参照する前提 (ghq の標準配置)。
      npm 公開テーマを使うならバージョン指定に書き換える
+   - デッキとテーマが**別オーナー配下**にある場合 (例: デッキが `github.com/<org>/`、
+     テーマが `github.com/<user>/`) は `link:../../../<owner>/<theme-repo>/packages/...` と
+     1 階層深くする。macOS はパスの大文字小文字を区別しないため、
+     誤ったパスでもディレクトリ自体には解決されてしまい気づきにくい
    - `slides/slides.md`: headmatter の `theme:` / `addons:`
    - `slides/slides.md` のレイアウト名 (`talk-cover` / `profile` / `toc`) は
      テーマ側に存在する必要がある。無いテーマでは `cover` / `default` 等へ変更する
