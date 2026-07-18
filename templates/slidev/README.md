@@ -47,7 +47,7 @@ cd slides && pnpm install
 cd slides
 pnpm dev      # dev サーバー (--port ${PORT:-3030} 対応済みなので portless でも動く)
 pnpm build    # dist/ に SPA ビルド
-pnpm export   # PDF エクスポート (playwright-chromium が必要)
+pnpm export   # PDF/PNG エクスポート (playwright-chromium は devDependencies に同梱)
 ```
 
 Claude Code から起動する場合は `ghost run -- portless <name> pnpm dev`。
