@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@slidev/client": ["./types/slidev-client.d.ts"],
+      "@slidev/client/*": ["./types/slidev-client.d.ts"]
+    },
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "shims.d.ts",
+    "types/**/*",
+    "packages/*/components/**/*",
+    "packages/*/composables/**/*",
+    "packages/*/layouts/**/*",
+    "packages/*/setup/**/*",
+    "packages/*/styles/**/*",
+    "packages/*/utils/**/*",
+    "packages/*/*.vue"
+  ]
+}

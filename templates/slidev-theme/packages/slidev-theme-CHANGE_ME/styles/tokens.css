@@ -1,0 +1,10 @@
+/* ブランドカラー・寸法などのデザイントークン。テーマ全体で参照する */
+:root {
+  --theme-primary: #2b7de9;
+  --theme-text: #1a1a1a;
+  --theme-muted: rgba(26, 26, 26, 0.6);
+  --theme-background: #ffffff;
+
+  /* Slidev 組み込み UI (code-group のタブ下線など) が参照する変数 */
+  --slidev-theme-primary: var(--theme-primary);
+}

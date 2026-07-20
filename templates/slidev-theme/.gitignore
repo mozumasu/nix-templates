@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.direnv/
+.rumdl_cache/
+.playwright-mcp/
+# スクリーンショット検証で root に溜まる png はコミットしない
+/*.png
+*.tsbuildinfo

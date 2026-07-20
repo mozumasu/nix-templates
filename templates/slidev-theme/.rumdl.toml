@@ -1,0 +1,14 @@
+# Slidev の headmatter/frontmatter は rumdl fmt が破壊するため対象外にする。
+# 具体的には:
+# - 先頭 `---` の前後に空行を挿入する
+# - frontmatter 内の裸 URL を <...> にラップする
+# - `layout: xxx` を `## layout: xxx` に誤変換する
+# rumdl の exclude はプロセス cwd 基準で照合されるため、
+# 生成後プロジェクトと nix-templates リポジトリの両方のパターンを持つ
+[global]
+exclude = [
+  "packages/*/example.md",
+  "packages/*/slides.md",
+  "templates/slidev-theme/packages/*/example.md",
+  "templates/slidev-theme/packages/*/slides.md",
+]

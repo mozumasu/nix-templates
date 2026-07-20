@@ -1,0 +1,20 @@
+{
+  "name": "CHANGE_ME",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.11.0",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.1.0",
+    "@slidev/client": "^52.16.0",
+    "@slidev/types": "^52.16.0",
+    "eslint": "^10.7.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.39",
+    "vue-tsc": "^3.3.7"
+  }
+}

@@ -1,0 +1,15 @@
+/* グローバル CSS はプレゼンター UI にも当たるため .slidev-layout でスコープする */
+.slidev-layout {
+  color: var(--theme-text);
+  background: var(--theme-background);
+  --uno: px-14 py-10 text-[1.1rem];
+}
+
+.slidev-layout h1 {
+  color: var(--theme-primary);
+  font-weight: 700;
+}
+
+.slidev-layout a {
+  color: var(--theme-primary);
+}

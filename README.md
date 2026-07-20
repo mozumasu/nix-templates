@@ -23,11 +23,16 @@ direnv allow      # or `nix develop`
 | 名前 | 説明 | 中身 |
 |---|---|---|
 | `terraform` | Terraform devShell (最小構成) | `flake.nix`, `.envrc` |
-| `slidev` | Slidev スライド (自作テーマの link 参照 + Cloudflare Workers デプロイ) | `flake.nix`, `.envrc`, `slides/` (package.json, slides.md 雛形, wrangler.jsonc), deploy CI, `.rumdl.toml` |
+| `slidev` | Slidev スライド (自作テーマの link 参照 + Cloudflare Workers デプロイ) | `flake.nix`, `.envrc`, `slides/` (package.json, slides.md 雛形, wrangler.jsonc), deploy CI, `.rumdl.toml`, `AGENTS.md` |
+| `slidev-theme` | Slidev テーマ + アドオンの pnpm workspace モノレポ | `flake.nix`, `.envrc`, `packages/slidev-theme-*` (layouts, styles), `packages/slidev-addon-*` (components), eslint + vue-tsc, `.rumdl.toml`, `AGENTS.md` |
 | `default` | `terraform` のエイリアス | 同上 |
 
 `slidev` の初期化後の手順 (CHANGE_ME の置換、テーマの link 参照の前提、
 デプロイ用 Secrets) は [templates/slidev/README.md](templates/slidev/README.md) を参照。
+`slidev-theme` の初期化後の手順は
+[templates/slidev-theme/README.md](templates/slidev-theme/README.md) を参照。
+2 つはペアで使う想定: `slidev-theme` で作ったテーマリポジトリを、
+`slidev` で作ったデッキが隣のディレクトリから `link:` 参照する。
 
 ## ディレクトリ構成
 

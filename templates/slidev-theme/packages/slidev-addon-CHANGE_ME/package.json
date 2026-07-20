@@ -1,0 +1,25 @@
+{
+  "name": "slidev-addon-CHANGE_ME",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "CHANGE_ME Slidev addon",
+  "license": "MIT",
+  "keywords": [
+    "slidev-addon",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "dev": "slidev example.md --port ${PORT:-3030} --remote --bind 127.0.0.1",
+    "build": "slidev build example.md"
+  },
+  "dependencies": {
+    "@slidev/types": "^52.16.0",
+    "slidev-theme-CHANGE_ME": "workspace:*"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.16.0"
+  }
+}

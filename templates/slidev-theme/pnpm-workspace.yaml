@@ -1,0 +1,7 @@
+packages:
+  - packages/*
+
+# postinstall (ブラウザ取得等) の実行を許可するパッケージ
+allowBuilds:
+  esbuild: true
+  playwright-chromium: true
