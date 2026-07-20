@@ -1,0 +1,6 @@
+{
+  "env": {
+    "CLAUDE_COMMIT_LANG": "ja",
+    "CLAUDE_COMMIT_STYLE": "gitmoji"
+  }
+}

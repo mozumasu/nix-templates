@@ -23,8 +23,8 @@ direnv allow      # or `nix develop`
 | 名前 | 説明 | 中身 |
 |---|---|---|
 | `terraform` | Terraform devShell (最小構成) | `flake.nix`, `.envrc` |
-| `slidev` | Slidev スライド (自作テーマの link 参照 + Cloudflare Workers デプロイ) | `flake.nix`, `.envrc`, `slides/` (package.json, slides.md 雛形, wrangler.jsonc), deploy CI, `.rumdl.toml`, `AGENTS.md` |
-| `slidev-theme` | Slidev テーマ + アドオンの pnpm workspace モノレポ | `flake.nix`, `.envrc`, `packages/slidev-theme-*` (layouts, styles), `packages/slidev-addon-*` (components), eslint + vue-tsc, `.rumdl.toml`, `AGENTS.md` |
+| `slidev` | Slidev スライド (自作テーマの link 参照 + Cloudflare Workers デプロイ) | `flake.nix`, `.envrc`, `slides/` (package.json, slides.md 雛形, wrangler.jsonc), deploy CI, `.rumdl.toml`, `AGENTS.md`, `.claude/settings.json` |
+| `slidev-theme` | Slidev テーマ + アドオンの pnpm workspace モノレポ | `flake.nix`, `.envrc`, `packages/slidev-theme-*` (layouts, styles), `packages/slidev-addon-*` (components), eslint + vue-tsc, lint/typecheck/build CI, `.rumdl.toml`, `AGENTS.md`, `.claude/settings.json` |
 | `default` | `terraform` のエイリアス | 同上 |
 
 `slidev` の初期化後の手順 (CHANGE_ME の置換、テーマの link 参照の前提、
