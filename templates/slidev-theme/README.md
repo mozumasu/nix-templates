@@ -14,6 +14,9 @@ direnv allow
 pnpm install
 ```
 
+生成された `pnpm-lock.yaml` はコミットする
+(CI が `pnpm install --frozen-lockfile` で参照するため、無いと CI が落ちる)。
+
 ## CHANGE_ME の置換箇所
 
 `CHANGE_ME` をテーマ名に一括置換し、ディレクトリ名も合わせる:
