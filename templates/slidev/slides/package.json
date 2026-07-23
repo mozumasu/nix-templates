@@ -1,5 +1,5 @@
 {
-  "name": "CHANGE_ME-slides",
+  "name": "PROJECT_CHANGE_ME-slides",
   "private": true,
   "packageManager": "pnpm@11.11.0",
   "type": "module",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@slidev/cli": "^52.11.0",
-    "slidev-addon-CHANGE_ME": "link:../../CHANGE_ME/packages/slidev-addon-CHANGE_ME",
-    "slidev-theme-CHANGE_ME": "link:../../CHANGE_ME/packages/slidev-theme-CHANGE_ME",
+    "slidev-addon-THEME_CHANGE_ME": "link:../../THEME_REPO_CHANGE_ME/packages/slidev-addon-THEME_CHANGE_ME",
+    "slidev-theme-THEME_CHANGE_ME": "link:../../THEME_REPO_CHANGE_ME/packages/slidev-theme-THEME_CHANGE_ME",
     "vue": "^3.5.0"
   },
   "devDependencies": {

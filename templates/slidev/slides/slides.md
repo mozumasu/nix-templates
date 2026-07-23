@@ -1,6 +1,6 @@
 ---
-# 使うテーマに置換する (npm 公開テーマ名 or ローカルパス)
-theme: CHANGE_ME
+# slidev-theme-<name> の <name> 部分 (npm 公開テーマならその名前)
+theme: THEME_CHANGE_ME
 title: CHANGE_ME タイトル
 info: |
   イベント名
@@ -9,7 +9,7 @@ class: text-left
 comark: true
 favicon: https://github.com/mozumasu.png
 addons:
-  - slidev-addon-CHANGE_ME
+  - slidev-addon-THEME_CHANGE_ME
 layout: talk-cover
 event: イベント名 2026.1.1
 image: https://github.com/mozumasu.png
