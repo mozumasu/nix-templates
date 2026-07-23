@@ -2,10 +2,14 @@
 # rumdl の exclude はプロセス cwd 基準で照合されるため、
 # 生成後プロジェクト (cwd = プロジェクトルート) と
 # nix-templates リポジトリ (cwd = リポジトリルート) の両方のパターンを持つ
+# デッキを slides/<slug>/ に掘るモノレポ構成でも除外が生きるよう
+# 1 階層下のパターンも持つ
 [global]
 exclude = [
   "slides/slides.md",
   "slides/pages/*.md",
+  "slides/*/slides.md",
+  "slides/*/pages/*.md",
   "templates/slidev/slides/slides.md",
   "templates/slidev/slides/pages/*.md",
 ]
