@@ -59,6 +59,15 @@
               prettier.enable = true;
               actionlint.enable = true;
             };
+            # rumdl と同じ理由でスライドの md を除外する
+            # (prettier もスライド区切りの --- を壊す)。
+            # デッキを slides/<slug>/ に掘るモノレポ構成でも効くよう 1 階層下も含める
+            settings.global.excludes = [
+              "slides/slides.md"
+              "slides/pages/*.md"
+              "slides/*/slides.md"
+              "slides/*/pages/*.md"
+            ];
           };
         };
     };

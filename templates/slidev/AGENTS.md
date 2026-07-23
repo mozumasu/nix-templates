@@ -42,10 +42,11 @@
 
 ## ツール運用
 
-- スライドの md は `.rumdl.toml` で formatter から除外している。
+- スライドの md は `.rumdl.toml` と flake.nix の treefmt excludes の
+  **両方**で formatter から除外している。
   ファイル先頭に `<!-- rumdl-disable -->` を置いてはいけない
   (headmatter パーサが 1 行目 `---` を要求するため設定が全部無視される)。
-  除外したい md が増えたら `.rumdl.toml` の exclude に追加する
+  除外したい md が増えたら両方の exclude に追加する
 - dev サーバーは `ghost run -- portless <name> pnpm dev` で起動する
 - headmatter の変更 (`comark:` 等) は HMR で反映されないことがある。
   効かないときは dev サーバーを再起動する
