@@ -10,6 +10,11 @@
           description = "Minimal Terraform devShell";
         };
 
+        terragrunt = {
+          path = ./templates/terragrunt;
+          description = "Terraform + Terragrunt devShell";
+        };
+
         slidev = {
           path = ./templates/slidev;
           description = "Slidev deck with a local custom theme, pnpm devShell, and Cloudflare Workers deploy";

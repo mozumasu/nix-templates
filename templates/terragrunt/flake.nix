@@ -1,5 +1,5 @@
 {
-  description = "Terraform devShell";
+  description = "Terraform + Terragrunt devShell";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -18,7 +18,10 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ pkgs.terraform ];
+          packages = [
+            pkgs.terraform
+            pkgs.terragrunt
+          ];
         };
       }
     );

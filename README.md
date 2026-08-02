@@ -18,11 +18,29 @@ nix flake init --template github:mozumasu/nix-templates
 direnv allow      # or `nix develop`
 ```
 
+### flake を 1 箇所に置いて複数プロジェクトから参照する
+
+プロジェクトごとに `flake.nix` をコピーせず、展開済みの flake を 1 箇所
+(例: `~/dotfiles/flakes/terragrunt`) に置き、各プロジェクトには `.envrc` だけを置く使い方もできる:
+
+```sh
+# 共有置き場に一度だけ展開
+mkdir -p ~/dotfiles/flakes/terragrunt && cd ~/dotfiles/flakes/terragrunt
+nix flake init --template github:mozumasu/nix-templates#terragrunt
+
+# 各プロジェクト側は .envrc のみ
+echo 'use flake ~/dotfiles/flakes/terragrunt' > .envrc
+direnv allow
+```
+
+ツールのバージョン更新は共有側の `nix flake update` 一発で全プロジェクトに反映される。
+
 ## テンプレート一覧
 
 | 名前 | 説明 | 中身 |
 |---|---|---|
-| `terraform` | Terraform devShell (最小構成) | `flake.nix`, `.envrc` |
+| `terraform` | Terraform devShell (最小構成) | `flake.nix`, `flake.lock`, `.envrc` |
+| `terragrunt` | Terraform + Terragrunt devShell | `flake.nix`, `flake.lock`, `.envrc` |
 | `slidev` | Slidev スライド (自作テーマの link 参照 + Cloudflare Workers デプロイ) | `flake.nix`, `.envrc`, `slides/` (package.json, slides.md 雛形, wrangler.jsonc), deploy CI, `.rumdl.toml`, `AGENTS.md`, `.claude/settings.json` |
 | `slidev-theme` | Slidev テーマ + アドオンの pnpm workspace モノレポ | `flake.nix`, `.envrc`, `packages/slidev-theme-*` (layouts, styles), `packages/slidev-addon-*` (components), eslint + vue-tsc, lint/typecheck/build CI, `.rumdl.toml`, `AGENTS.md`, `.claude/settings.json` |
 | `default` | `terraform` のエイリアス | 同上 |
@@ -40,8 +58,9 @@ direnv allow      # or `nix develop`
 .
 ├── flake.nix                 # テンプレートの目次 (templates output を公開)
 └── templates/
-    └── terraform/
+    └── terraform/            # terragrunt なども同じ構成
         ├── flake.nix         # 展開先にコピーされる本体 (terraform devShell)
+        ├── flake.lock        # 展開先にコピーされるバージョン固定
         └── .envrc            # 展開先にコピーされる本体 (use flake)
 ```
 
