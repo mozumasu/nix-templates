@@ -18,7 +18,10 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ pkgs.terraform ];
+          packages = [
+            pkgs.terraform
+            # pkgs.terragrunt
+          ];
         };
       }
     );
