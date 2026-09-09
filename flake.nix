@@ -25,7 +25,10 @@
           description = "Slidev theme + addon pnpm workspace monorepo with lint/typecheck and pnpm devShell";
         };
 
-        default = self.templates.terraform;
+        default = {
+          path = ./templates/default;
+          description = "Minimal devShell starter";
+        };
       };
     };
 }
