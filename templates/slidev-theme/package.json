@@ -6,7 +6,8 @@
   "packageManager": "pnpm@11.11.0",
   "scripts": {
     "lint": "eslint .",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "test": "node --test \"packages/**/*.test.ts\""
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",

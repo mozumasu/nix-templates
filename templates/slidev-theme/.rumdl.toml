@@ -6,6 +6,8 @@
 # rumdl の exclude はプロセス cwd 基準で照合されるため、
 # 生成後プロジェクトと nix-templates リポジトリの両方のパターンを持つ
 [global]
+# 行長は日本語の散文と相性が悪く、折り返しても読みやすくならないので無効化
+disable = [ "MD013" ]
 exclude = [
   "packages/*/example.md",
   "packages/*/slides.md",
