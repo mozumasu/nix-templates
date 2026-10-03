@@ -28,21 +28,16 @@
         }:
         let
           pkgs = import nixpkgs { inherit system; };
-          # CI (pnpm/action-setup) と package.json の packageManager と同一バージョンに固定する
-          pnpm = pkgs.pnpm.overrideAttrs (_: rec {
-            version = "11.11.0";
-            src = pkgs.fetchurl {
-              url = "https://registry.npmjs.org/pnpm/-/pnpm-${version}.tgz";
-              hash = "sha512-RGP2X9gO2A1pvB1L8WPulPYFxzgPwxi7Wy6+FfjNEtScUaTVnpUbQB52TTtsp1HL9RvFDtcAGmvLSTXmhMNIgg==";
-            };
-          });
         in
         {
           devShells.default = pkgs.mkShell {
             buildInputs = [
               # nixpkgs-unstable の nodejs デフォルト = 現行 Active LTS
               pkgs.nodejs
-              pnpm
+              # バージョン固定は package.json の packageManager に任せる
+              # (pnpm が自動でそのバージョンに切り替える)。nixpkgs の pnpm は
+              # cargo vendor を伴うビルドのため overrideAttrs で src だけ差し替えられない
+              pkgs.pnpm
             ];
 
             shellHook = ''
