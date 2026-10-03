@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # actions は full SHA で pin しているので、更新は Dependabot に任せる
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
