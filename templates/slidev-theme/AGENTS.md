@@ -29,6 +29,11 @@
 - frontmatter の値は props で受ける。ただし `title` は Slidev の予約フィールドで
   props に届かないため `frontmatter` オブジェクト経由で取得する
 - 背景は `handleBackground` (`@slidev/client/layoutHelper.ts`) で処理する
+- 画像パスを受ける prop は `:src` に渡す前に `utils/withBase.ts` を通す。
+  frontmatter やバインド式の値は Vite の asset 変換を通らず、`--base` 付き
+  ビルドでルート絶対パス (`/foo.png`) が 404 になるため
+- `vue` / `@slidev/client` を import するパッケージは `peerDependencies` に
+  宣言する (`.npmrc` の hoist 設定に頼らない)
 
 ## example.md の作法
 
@@ -46,7 +51,11 @@
 
 - `@slidev/client` は型なし配布のため `types/slidev-client.d.ts` で使う API だけ
   自前型付けしている。新しい API を使ったらそこに追記する
-- 変更後は root で `pnpm lint` と `pnpm typecheck`、触ったパッケージで
+- 変更後は root で `pnpm lint` / `pnpm typecheck` / `pnpm test`、触ったパッケージで
   `pnpm build` を通してから完了報告する
+- 単体テストは devDependency を増やさず Node 標準の `node --test` (型ストリップ) で書く。
+  対象は Vue / Slidev ランタイムに依存しない純粋関数だけに絞り、`*.test.ts` として
+  関数の隣に置く。`import.meta.env` など node で読めない値は引数で注入できるようにする。
+  `*.test.ts` は `@types/node` が無いため tsconfig で typecheck 対象外にしている
 - 見た目の確認は `pnpm screenshot` (PNG エクスポート) で行う。
   dev サーバーは `ghost run -- portless <name> pnpm dev`

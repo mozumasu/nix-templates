@@ -1,6 +1,12 @@
 packages:
   - packages/*
 
+# @slidev/cli 52.20 系が markdown-it 15 を引き込むが、@comark/markdown-it は
+# peer で ^14 しか対応しておらず slidev build が ERR_PACKAGE_PATH_NOT_EXPORTED で落ちる。
+# 上流が 15 に追従したら削除する
+overrides:
+  markdown-it: ^14.3.0
+
 # postinstall (ブラウザ取得等) の実行を許可するパッケージ
 allowBuilds:
   esbuild: true

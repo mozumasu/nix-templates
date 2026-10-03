@@ -12,5 +12,7 @@ export default antfu({
     'vue/singleline-html-element-content-newline': 'off',
     // pnpm-workspace.yaml への設定追加 (shellEmulator 等) は挙動を変えるため lint では強制しない
     'pnpm/yaml-enforce-settings': 'off',
+    // テストランナーは vitest ではなく Node 標準の node:test を使う
+    'test/no-import-node-test': 'off',
   },
 })

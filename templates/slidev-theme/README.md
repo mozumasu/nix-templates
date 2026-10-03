@@ -42,6 +42,7 @@ pnpm screenshot   # PNG エクスポート (playwright-chromium 同梱)
 
 pnpm lint         # root で: eslint (@antfu/eslint-config)
 pnpm typecheck    # root で: vue-tsc
+pnpm test         # root で: node --test (packages/**/*.test.ts)
 ```
 
 Claude Code から起動する場合は `ghost run -- portless <name> pnpm dev`。
@@ -57,6 +58,11 @@ Claude Code から起動する場合は `ghost run -- portless <name> pnpm dev`�
   **パッケージ名**で参照する (local path は workspace で解決されないことがある)
 - アドオン自身の example.md では addon を `./slidev-addon-<name>` と書く
   (`addons:` の相対パスは deck ディレクトリの 1 つ上基準で解決されるため)
+- `utils/withBase.ts`: 画像 prop のルート絶対パスに `BASE_URL` を前置するヘルパー。
+  `--base` 付きビルドで画像が 404 にならないよう、`:src` に渡す前に通す
+- CI (`.github/workflows/ci.yml`): lint / typecheck / test / `pnpm -r build`
+  (example.md のビルドによる smoke テスト) と rumdl の Markdown lint。
+  actions は full SHA で pin し、更新は Dependabot に任せる
 - `types/slidev-client.d.ts`: `@slidev/client` は型なし配布のため、使う API だけ
   自前で型付けして vue-tsc を通している。新しい API を使うときはここに追記する
 

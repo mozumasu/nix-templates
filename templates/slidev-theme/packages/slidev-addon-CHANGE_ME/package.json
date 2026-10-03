@@ -13,7 +13,12 @@
   },
   "scripts": {
     "dev": "slidev example.md --port ${PORT:-3030} --remote --bind 127.0.0.1",
-    "build": "slidev build example.md"
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "peerDependencies": {
+    "@slidev/client": ">=52",
+    "vue": "^3"
   },
   "dependencies": {
     "@slidev/types": "^52.16.0",

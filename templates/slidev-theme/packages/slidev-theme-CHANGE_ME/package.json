@@ -17,6 +17,10 @@
     "export": "slidev export example.md",
     "screenshot": "slidev export example.md --format png"
   },
+  "peerDependencies": {
+    "@slidev/client": ">=52",
+    "vue": "^3"
+  },
   "dependencies": {
     "@slidev/types": "^52.16.0"
   },
