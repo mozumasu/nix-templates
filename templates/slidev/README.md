@@ -19,10 +19,10 @@ cd slides && pnpm install
 (必須。置換するまで `pnpm install` は失敗する):
 
 ```sh
-# 1. テーマのリポジトリ名 (例: findy-slidev)
-git grep -l THEME_REPO_CHANGE_ME | xargs perl -pi -e 's/THEME_REPO_CHANGE_ME/findy-slidev/g'
-# 2. テーマ短縮名 = slidev-theme-<name> の <name> (例: findy)
-git grep -l THEME_CHANGE_ME | xargs perl -pi -e 's/THEME_CHANGE_ME/findy/g'
+# 1. テーマのリポジトリ名 (例: my-slidev-theme)
+git grep -l THEME_REPO_CHANGE_ME | xargs perl -pi -e 's/THEME_REPO_CHANGE_ME/my-slidev-theme/g'
+# 2. テーマ短縮名 = slidev-theme-<name> の <name> (例: mytheme)
+git grep -l THEME_CHANGE_ME | xargs perl -pi -e 's/THEME_CHANGE_ME/mytheme/g'
 # 3. プロジェクト名 = リポジトリ名推奨 (例: my-talk)
 git grep -l PROJECT_CHANGE_ME | xargs perl -pi -e 's/PROJECT_CHANGE_ME/my-talk/g'
 ```
