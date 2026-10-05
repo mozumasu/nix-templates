@@ -38,25 +38,27 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
+        id: install
         run: pnpm install --frozen-lockfile
 
-      # lint が落ちても後続の結果が見えるよう、以降は if: always() で続行する
+      # lint が落ちても後続の結果が見えるよう、以降は install 成功時に限り続行する
+      # (always() だとキャンセル時や install 失敗時にも走り、原因が埋もれる)
       - name: Lint
         run: pnpm lint
 
       - name: Typecheck
-        if: always()
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm typecheck
 
       # Vue / Slidev ランタイムに依存しない純粋関数の単体テスト (node --test)
       - name: Test
-        if: always()
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm test
 
       # 各パッケージの example.md がビルドできることを確認する
       # (レイアウト・コンポーネントのコンパイルエラーを検知する smoke テスト)
       - name: Build packages
-        if: always()
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm -r build
 
   # Node 不要なので check job とは分ける

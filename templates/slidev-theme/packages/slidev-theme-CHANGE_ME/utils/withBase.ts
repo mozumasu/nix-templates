@@ -4,7 +4,8 @@
 // base で始まる値はそのまま返す (base と同名のディレクトリが public/ にある場合は誤判定する)
 // base は node --test から注入できるよう省略可能な引数にしている
 export function withBase(path?: string, base = import.meta.env.BASE_URL) {
-  if (!path || !path.startsWith('/'))
+  // //cdn.example.com/a.png のようなプロトコル相対 URL は外部参照なので触らない
+  if (!path || !path.startsWith('/') || path.startsWith('//'))
     return path
   return path.startsWith(base) ? path : base + path.slice(1)
 }
