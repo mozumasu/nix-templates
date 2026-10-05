@@ -17,5 +17,6 @@ test('base が / のときはパスを変えない', () => {
 test('相対パス・URL・undefined は触らない', () => {
   assert.equal(withBase('foo.png', '/deck/'), 'foo.png')
   assert.equal(withBase('https://example.com/a.png', '/deck/'), 'https://example.com/a.png')
+  assert.equal(withBase('//cdn.example.com/a.png', '/deck/'), '//cdn.example.com/a.png')
   assert.equal(withBase(undefined, '/deck/'), undefined)
 })
