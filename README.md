@@ -35,6 +35,19 @@ direnv allow
 
 ツールのバージョン更新は共有側の `nix flake update` 一発で全プロジェクトに反映される。
 
+### mise.toml でバージョンを固定しているプロジェクト
+
+リポジトリが `mise.toml` でツールのバージョンを固定している場合、nix からは mise 本体だけを入れ、
+バージョンは `mise.toml` に従わせる。各プロジェクトの `.envrc`:
+
+```sh
+use flake "github:mozumasu/nix-templates?dir=templates/mise"
+watch_file mise.toml
+eval "$(mise env -s bash)"
+```
+
+初回のみ `mise trust && mise install` を実行する。
+
 ## テンプレート一覧
 
 | 名前 | 説明 | 中身 |
