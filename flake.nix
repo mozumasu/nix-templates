@@ -15,6 +15,11 @@
           description = "Terraform + Terragrunt devShell";
         };
 
+        mise = {
+          path = ./templates/mise;
+          description = "mise devShell (tool versions come from the project's mise.toml)";
+        };
+
         slidev = {
           path = ./templates/slidev;
           description = "Slidev deck with a local custom theme, pnpm devShell, and Cloudflare Workers deploy";
