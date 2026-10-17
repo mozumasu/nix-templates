@@ -15,6 +15,11 @@
           description = "Terraform + Terragrunt devShell";
         };
 
+        kubernetes = {
+          path = ./templates/kubernetes;
+          description = "Kubernetes devShell (kubectl, k9s, kubectx/kubens, helm, cilium, crictl, runc)";
+        };
+
         mise = {
           path = ./templates/mise;
           description = "mise devShell (tool versions come from the project's mise.toml)";
